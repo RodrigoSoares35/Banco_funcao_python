@@ -11,6 +11,7 @@ def menu():
     [5]--------------- Extrato
     [6]----------------- Saldo
     [7]----------Listar contas
+    [8]------Cartão de Credito
     [0]------------------ Sair
 
     **************************
@@ -112,6 +113,19 @@ def criar_conta(agencia, numero_conta, usuarios):
 
     print("\nUsuário não encontrado ")
 
+def cartao_credito():
+ cartao_credito = 2000
+ print("---Cartão de credito-----")
+ print()
+ print(f"Valor disponivel para compras no Credito R$: {cartao_credito:.2f}")
+ compra = float(input("Informe o valor da Compra:\n"))
+ cartao_credito -= compra
+ if compra > cartao_credito:
+      print("Saldo Insuficiente ❌")
+ else:
+       print(f"Valor disponivel para compras no Credito: {cartao_credito:.2f}")
+ 
+
 
 
 saldo = 0
@@ -160,6 +174,9 @@ while True:
 
     elif opcao == "7":
         listar_contas(lista_contas)
+    
+    elif opcao == "8":
+        cartao_credito()
        
     elif opcao == "0":
 
