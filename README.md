@@ -13,6 +13,7 @@ O sistema possui 7 funções principais:
     [4]----------------- Sacar
     [5]--------------- Extrato
     [6]----------------- Saldo
+    [8]------Cartão de Credito
     [7]----------Listar contas
     [0]------------------ Sair
 </h3>
