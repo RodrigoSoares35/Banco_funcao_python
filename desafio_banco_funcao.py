@@ -11,7 +11,6 @@ def menu():
     [5]--------------- Extrato
     [6]----------------- Saldo
     [7]----------Listar contas
-   
     [0]------------------ Sair
 
     **************************
@@ -80,14 +79,19 @@ def novo_usuario(usuarios):
     endereco = input("Informe o endereço (logradouro, nro - bairro - cidade/sigla estado):\n")
 
     lista_usuarios.append({"nome": nome, "data_nascimento": data_nascimento, "cpf": cpf, "endereco": endereco})
-
-    print("=== Usuário criado com sucesso! ===")
+    
+    print("----Dados Cadastrados---------")
+    print(f"Nome:{nome} \n Data de Nascimento:{data_nascimento} \n Endereço:{endereco}")
+    print()
+    print("Usuário criado com sucesso!✅")
 
 def consultar_usuario(cpf, usuarios):
     usuarios_filtrados = [usuario for usuario in usuarios if usuario["cpf"] == cpf]
     return usuarios_filtrados[0] if usuarios_filtrados else None
 
 def listar_contas(contas):
+    print("-------Lista de Contas----------")
+    print()
     for conta in contas:
         linha = f"""\
             Agência:{conta['agencia']}
@@ -96,17 +100,17 @@ def listar_contas(contas):
         """
         print("-------------------------")
         print(linha)
-        print("-------------------------")
+       
        
 def criar_conta(agencia, numero_conta, usuarios):
-    cpf = input("Informe o CPF do usuário: ")
+    cpf = input("Informe o CPF do usuário:\n")
     usuario = consultar_usuario(cpf, usuarios)
 
     if usuario:
-        print("\n=== Conta criada com sucesso! ===")
-        return {"agencia": agencia, "numero_conta": numero_conta, "usuario": usuario}
+        print("Conta criada com sucesso! ✅")
+        return {"agencia": agencia,"numero_conta": numero_conta,"usuario": usuario}
 
-    print("\n@@@ Usuário não encontrado, fluxo de criação de conta encerrado! @@@")
+    print("\nUsuário não encontrado ")
 
 
 
